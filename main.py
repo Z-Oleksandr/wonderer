@@ -3,6 +3,15 @@ from ui.home_page import HomePage
 from ui.settings_page import SettingsPage
 import json
 import os
+import ctypes
+
+try:
+    ctypes.windll.shcore.SetProcessDpiAwareness(1)
+except:
+    try:
+        ctypes.windll.user32.SetProcessDPIAware()
+    except:
+        pass
 
 CONFIG_PATH = "config.json"
 
